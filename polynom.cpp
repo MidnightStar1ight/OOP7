@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <sstream>
 
-template <class number>
+template<class number>
 Polynom<number>::Polynom()
     : degree(0)
     , An()
@@ -10,13 +10,15 @@ Polynom<number>::Polynom()
     , coefs()
 {}
 
-template <class number>
-Polynom<number>::~Polynom() {}
+template<class number>
+Polynom<number>::~Polynom()
+{}
 
-template <class number>
-void Polynom<number>::clear() {}
+template<class number>
+void Polynom<number>::clear()
+{}
 
-template <class number>
+template<class number>
 void Polynom<number>::fillRoots(const std::string &input)
 {
     roots.fill(input);
@@ -24,8 +26,9 @@ void Polynom<number>::fillRoots(const std::string &input)
     calculateCoefs();
 }
 
-template <class number>
-Array<number> Polynom<number>::multiplyPolynomials(const Array<number> &roots1, const Array<number> &roots2)
+template<class number>
+Array<number> Polynom<number>::multiplyPolynomials(const Array<number> &roots1,
+                                                   const Array<number> &roots2)
 {
     Array<number> result;
     size_t newSize = roots1.getSize() + roots2.getSize() - 1;
@@ -40,7 +43,7 @@ Array<number> Polynom<number>::multiplyPolynomials(const Array<number> &roots1, 
     return result;
 }
 
-template <class number>
+template<class number>
 void Polynom<number>::calculateCoefs()
 {
     Array<number> currentPoly;
@@ -57,15 +60,14 @@ void Polynom<number>::calculateCoefs()
     coefs = currentPoly;
 }
 
-template <class number>
-void Polynom<number>::setRoot(const int index, const number& newRoot)
+template<class number>
+void Polynom<number>::setRoot(const int index, const number &newRoot)
 {
     if (index == roots.getSize()) {
         roots.add(newRoot);
         degree++;
         calculateCoefs();
-    }
-    else if (index >= 0 && index < roots.getSize()) {
+    } else if (index >= 0 && index < roots.getSize()) {
         if (newRoot != roots[index]) {
             roots[index] = newRoot;
             calculateCoefs();
@@ -73,7 +75,7 @@ void Polynom<number>::setRoot(const int index, const number& newRoot)
     }
 }
 
-template <class number>
+template<class number>
 void Polynom<number>::addRoot(const number &newRoot)
 {
     roots.add(newRoot);
@@ -81,8 +83,8 @@ void Polynom<number>::addRoot(const number &newRoot)
     calculateCoefs();
 }
 
-template <class number>
-void Polynom<number>::setAn(const number& newAn)
+template<class number>
+void Polynom<number>::setAn(const number &newAn)
 {
     if (An != newAn) {
         An = newAn;
@@ -90,31 +92,31 @@ void Polynom<number>::setAn(const number& newAn)
     }
 }
 
-template <class number>
+template<class number>
 size_t Polynom<number>::getDegree() const
 {
     return degree;
 }
 
-template <class number>
+template<class number>
 const number &Polynom<number>::getAn() const
 {
     return An;
 }
 
-template <class number>
+template<class number>
 const Array<number> &Polynom<number>::getRoots() const
 {
     return roots;
 }
 
-template <class number>
+template<class number>
 const Array<number> &Polynom<number>::getCoefs() const
 {
     return coefs;
 }
 
-template <class number>
+template<class number>
 number Polynom<number>::evaluate(const number &x) const
 {
     number result = An;
@@ -126,7 +128,7 @@ number Polynom<number>::evaluate(const number &x) const
     return result;
 }
 
-template <class number>
+template<class number>
 void Polynom<number>::resize(const size_t newSize)
 {
     roots.resize(newSize);
@@ -135,7 +137,7 @@ void Polynom<number>::resize(const size_t newSize)
     calculateCoefs();
 }
 
-template <class number>
+template<class number>
 void Polynom<number>::show(std::ostream &output, bool isFirstForm) const
 {
     if constexpr (std::is_same<number, double>::value) {
@@ -167,23 +169,20 @@ void Polynom<number>::show(std::ostream &output, bool isFirstForm) const
                 output << "0";
             }
             output << '\n';
-        }
-        else {
+        } else {
             output << "p(x) = " << An;
 
             for (size_t i = 0; i < roots.getSize(); ++i) {
                 double root = roots[i];
                 if (root != 0) {
                     output << "(x" << (root > 0.0 ? " - " : " + ") << std::abs(root) << ")";
-                }
-                else {
+                } else {
                     output << "(x)";
                 }
             }
             output << '\n';
         }
-    }
-    else {
+    } else {
         if (isFirstForm) {
             output << "p(x) = ";
             bool firstTerm = true;
@@ -203,12 +202,11 @@ void Polynom<number>::show(std::ostream &output, bool isFirstForm) const
                     } else {
                         output << '(';
                         if (re != 0.0) {
-                            output << (!firstTerm ? std::abs(re) : re) << ((im > 0.0) ? " + " : " - ") << std::abs(im);
-                        }
-                        else if (!firstTerm) {
+                            output << (!firstTerm ? std::abs(re) : re)
+                                   << ((im > 0.0) ? " + " : " - ") << std::abs(im);
+                        } else if (!firstTerm) {
                             output << ((im > 0.0) ^ (needMinus) ? " + " : " - ") << std::abs(im);
-                        }
-                        else {
+                        } else {
                             output << im;
                         }
                         output << "i)";
@@ -237,9 +235,9 @@ void Polynom<number>::show(std::ostream &output, bool isFirstForm) const
                 } else {
                     output << '(';
                     if (An.getRe() != 0.0) {
-                        output << An.getRe() << (An.getIm() > 0.0 ? " + " : " - ") << std::abs(An.getIm());
-                    }
-                    else {
+                        output << An.getRe() << (An.getIm() > 0.0 ? " + " : " - ")
+                               << std::abs(An.getIm());
+                    } else {
                         output << An.getIm();
                     }
                     output << "i)";

@@ -3,7 +3,8 @@
 #include <regex>
 
 Complex::Complex(const double re)
-    : re(re), im(0)
+    : re(re)
+    , im(0)
 {}
 
 Complex::Complex(const double re, const double im)

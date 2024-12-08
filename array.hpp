@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <sstream>
 
-template <class number>
+template<class number>
 Array<number>::Array()
     : size(0)
     , capacity(0)
     , array(nullptr)
 {}
 
-template <class number>
+template<class number>
 Array<number>::Array(size_t initialSize)
     : size(0)
     , capacity(0)
@@ -18,7 +18,7 @@ Array<number>::Array(size_t initialSize)
     resize(initialSize);
 }
 
-template <class number>
+template<class number>
 Array<number>::Array(const std::initializer_list<number> &initList)
     : size(0)
     , capacity(0)
@@ -29,7 +29,7 @@ Array<number>::Array(const std::initializer_list<number> &initList)
     size = initList.size();
 }
 
-template <class number>
+template<class number>
 Array<number>::Array(const Array &other)
     : size(other.size)
     , capacity(other.capacity)
@@ -41,8 +41,8 @@ Array<number>::Array(const Array &other)
     }
 }
 
-template <class number>
-Array<number>& Array<number>::operator=(const Array &other)
+template<class number>
+Array<number> &Array<number>::operator=(const Array &other)
 {
     if (this == &other)
         return *this;
@@ -62,19 +62,19 @@ Array<number>& Array<number>::operator=(const Array &other)
     return *this;
 }
 
-template <class number>
+template<class number>
 Array<number>::~Array()
 {
     delete[] array;
 }
 
-template <class number>
+template<class number>
 size_t Array<number>::getSize() const
 {
     return size;
 }
 
-template <class number>
+template<class number>
 void Array<number>::resize(size_t newSize)
 {
     if (newSize > capacity) {
@@ -83,7 +83,7 @@ void Array<number>::resize(size_t newSize)
     size = newSize;
 }
 
-template <class number>
+template<class number>
 void Array<number>::add(number value)
 {
     if (size >= capacity) {
@@ -92,7 +92,7 @@ void Array<number>::add(number value)
     array[size++] = value;
 }
 
-template <class number>
+template<class number>
 void Array<number>::remove()
 {
     if (size > 0) {
@@ -103,7 +103,7 @@ void Array<number>::remove()
     }
 }
 
-template <class number>
+template<class number>
 number Array<number>::average() const
 {
     number res = 0;
@@ -115,7 +115,7 @@ number Array<number>::average() const
     return res;
 }
 
-template <class number>
+template<class number>
 number Array<number>::MSD() const
 {
     number avg = average();
@@ -128,7 +128,7 @@ number Array<number>::MSD() const
     return res;
 }
 
-template <class number>
+template<class number>
 void Array<number>::fill(const std::string &input)
 {
     std::istringstream stream(input);
@@ -148,14 +148,14 @@ void Array<number>::fill(const std::string &input)
     }
 }
 
-template <class number>
+template<class number>
 void Array<number>::clear()
 {
     size = 0;
 }
 
-template <class number>
-number& Array<number>::operator[](size_t index)
+template<class number>
+number &Array<number>::operator[](size_t index)
 {
     if (index >= size) {
         throw std::out_of_range("Index out of range");
@@ -163,8 +163,8 @@ number& Array<number>::operator[](size_t index)
     return array[index];
 }
 
-template <class number>
-const number& Array<number>::operator[](size_t index) const
+template<class number>
+const number &Array<number>::operator[](size_t index) const
 {
     if (index >= size) {
         throw std::out_of_range("Index out of range");
@@ -172,7 +172,7 @@ const number& Array<number>::operator[](size_t index) const
     return array[index];
 }
 
-template <class number>
+template<class number>
 void Array<number>::reallocate(size_t newCapacity)
 {
     number *newArray = new number[newCapacity];

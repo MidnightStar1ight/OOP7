@@ -7,7 +7,7 @@ class Function //: public Polynom<number>
 {
 public:
     Function();
-//    Function(int pow, Array<number> );
+    //    Function(int pow, Array<number> );
 };
 
 #endif // FUNCTION_H

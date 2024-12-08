@@ -44,10 +44,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(chooseSin, SIGNAL(pressed()), this, SLOT(setSin()));
     connect(chooseSi, SIGNAL(pressed()), this, SLOT(setSi()));
     connect(buttonCalculate, SIGNAL(pressed()), this, SLOT(setCalculate()));
-
 }
 
-MainWindow::~MainWindow() {
+MainWindow::~MainWindow()
+{
     delete nameFunctionType;
     delete nameAccuracy;
     delete nameValue;

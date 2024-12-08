@@ -5,9 +5,8 @@
 #include <initializer_list>
 #include <iostream>
 #include <stdexcept>
-#include "array.hpp"
 
-template <class number>
+template<class number>
 class Array
 {
 private:
@@ -37,6 +36,8 @@ public:
     number &operator[](size_t index);
     const number &operator[](size_t index) const;
 };
+
+#include "array.hpp"
 
 
 #endif // ARRAY_H

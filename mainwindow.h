@@ -1,12 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QWidget>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QWidget>
 
 class MainWindow : public QMainWindow
 {

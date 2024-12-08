@@ -2,17 +2,19 @@
 #define POLYNOM_H
 
 #include "array.h"
-#include "polynom.cpp"
+//#include "polynom.cpp"
 
-template <class number>
+template<class number>
 class Polynom
 {
 private:
     size_t degree;
     number An;
     Array<number> roots;
+
 protected:
     Array<number> coefs;
+
 public:
     Polynom();
     ~Polynom();
