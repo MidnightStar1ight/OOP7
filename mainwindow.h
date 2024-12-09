@@ -8,6 +8,11 @@
 #include <QRadioButton>
 #include <QWidget>
 
+#include "complex.h"
+#include <polynom.h>
+#include "sin.h"
+#include "si.h"
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -16,6 +21,8 @@ class MainWindow : public QMainWindow
     QLineEdit *inputAccuracy, *inputValueRe, *inputValueIm;
     QPushButton *buttonCalculate;
     QRadioButton *chooseSin, *chooseSi;
+
+    //Polynom<number> polynom;
 
 public:
     MainWindow(QWidget *parent = nullptr);

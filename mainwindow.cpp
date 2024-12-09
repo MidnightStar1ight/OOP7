@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setWindowTitle("MainWindow");
+    setWindowTitle("");
     setFixedSize(240, 220);
 
     nameFunctionType = new QLabel("Выберите тип функции:", this);
@@ -63,8 +63,6 @@ MainWindow::~MainWindow()
 void MainWindow::setSin()
 {
     QString str("Теперь будет вычисляться синус");
-    //number num(inputRe->text().toDouble(), inputIm->text().toDouble());
-    //polynom.addRoot(num);
     output->setText(str);
 }
 
@@ -76,6 +74,15 @@ void MainWindow::setSi()
 
 void MainWindow::setCalculate()
 {
-    QString str("А вот и полином!");
+    QString str("");
+
+    if (chooseSin->isChecked()) {
+        //Sin<Complex> sinnn(1);
+        str += "Не готово!";
+    }
+    else {
+        str += "Тоже не готово!";
+    }
+
     output->setText(str);
 }

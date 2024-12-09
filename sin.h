@@ -1,11 +1,17 @@
 #ifndef SIN_H
 #define SIN_H
 
-//template <class number>
-class sin
+#include "polynom.h"
+#include "function.h"
+
+
+template <class number>
+class Sin : public Function<number>
 {
 public:
-    sin();
+    Sin();
+    Sin(int pow);
+    number calculate(number value);
 };
 
 #endif // SIN_H

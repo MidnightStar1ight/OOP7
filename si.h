@@ -1,10 +1,15 @@
 #ifndef SI_H
 #define SI_H
 
-class Si
+#include "polynom.h"
+#include "function.h"
+
+template <class number>
+class Si: public Function<number>
 {
 public:
     Si();
+    Si(int pow);
 };
 
-#endif // SI_H
+#endif // SIN_H
