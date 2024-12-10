@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <sstream>
 
+/*
 template<class number>
 Polynom<number>::Polynom()
     : degree(0)
@@ -9,10 +10,7 @@ Polynom<number>::Polynom()
     , roots()
     , coefs()
 {}
-
-template<class number>
-Polynom<number>::~Polynom()
-{}
+*/
 
 template<class number>
 void Polynom<number>::clear()

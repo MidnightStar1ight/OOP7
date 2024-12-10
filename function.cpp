@@ -1,10 +1,5 @@
+/*
 #include "function.h"
-
-template<class number>
-Function<number>::Function()
-{
-
-}
 
 template<class number>
 Function<number>::Function(int pow, Array<number> derivatives)
@@ -17,10 +12,14 @@ Function<number>::Function(int pow, Array<number> derivatives)
         factorial*=(i+1);
         coefs[i] = number(derivatives[i]/factorial, 0);
     }
-}
 
+}
+*/
+
+/*
 template<class number>
 number Function<number>::operator()(number value)
 {
     return this->evaluate(value);
 }
+*/

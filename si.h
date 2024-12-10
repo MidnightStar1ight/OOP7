@@ -7,9 +7,11 @@
 template <class number>
 class Si: public Function<number>
 {
+    Array<number> calculateShit(int pow);
 public:
     Si();
-    Si(int pow);
+    Si(int pow): Function<number>(pow, calculateShit(pow)){}
+    number operator()(number value);
 };
 
 #endif // SIN_H

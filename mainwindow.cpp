@@ -77,8 +77,11 @@ void MainWindow::setCalculate()
     QString str("");
 
     if (chooseSin->isChecked()) {
-        //Sin<Complex> sinnn(1);
-        str += "Не готово!";
+        Complex c(inputValueRe->text().toDouble(), inputValueIm->text().toDouble());
+        Sin<Complex> sinus(inputAccuracy->text().toInt());
+        str += "Sin(";
+        str += ") = ";
+        str << sinus(c);
     }
     else {
         str += "Тоже не готово!";

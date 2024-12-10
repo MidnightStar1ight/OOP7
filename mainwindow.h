@@ -9,9 +9,10 @@
 #include <QWidget>
 
 #include "complex.h"
-#include <polynom.h>
+#include "polynom.h"
 #include "sin.h"
 #include "si.h"
+#include "function.h"
 
 class MainWindow : public QMainWindow
 {

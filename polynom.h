@@ -2,7 +2,6 @@
 #define POLYNOM_H
 
 #include "array.h"
-//#include "polynom.cpp"
 
 template<class number>
 class Polynom
@@ -16,8 +15,7 @@ protected:
     Array<number> coefs;
 
 public:
-    Polynom();
-    ~Polynom();
+    //Polynom();
 
     void clear();
 
@@ -32,6 +30,18 @@ public:
     const Array<number> &getRoots() const;
     const Array<number> &getCoefs() const;
     number evaluate(const number &x) const;
+    number count_value(number value)
+    {
+        int length=coefs.getSize();
+        number result;
+        number val=value;
+        for (int i = 0; i < length; ++i)
+        {
+            result = result + coefs[i]*val;
+            val=val*value;
+        }
+        return result;
+    }
 
     void resize(const size_t newSize);
 
