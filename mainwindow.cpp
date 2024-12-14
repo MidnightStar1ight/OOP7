@@ -75,16 +75,28 @@ void MainWindow::setSi()
 void MainWindow::setCalculate()
 {
     QString str("");
+    Complex c(inputValueRe->text().toDouble(), inputValueIm->text().toDouble());
 
     if (chooseSin->isChecked()) {
-        Complex c(inputValueRe->text().toDouble(), inputValueIm->text().toDouble());
-        Sin<Complex> sinus(inputAccuracy->text().toInt());
+        Sin<Complex> sin(inputAccuracy->text().toInt());
         str += "Sin(";
-        str += ") = ";
-        str << sinus(c);
+        str += QString().setNum(inputValueRe->text().toDouble());
+        if (inputValueIm->text().toDouble() >= 0)
+            str += "+";
+        str += QString().setNum(inputValueIm->text().toDouble());
+        str += "i) = ";
+        str << sin(Complex(inputValueRe->text().toDouble(), inputValueIm->text().toDouble()));
     }
     else {
-        str += "Тоже не готово!";
+        Complex c(inputValueRe->text().toDouble(), inputValueIm->text().toDouble());
+        Si<Complex> Si(inputAccuracy->text().toInt());
+        str += "Si(";
+        str += QString().setNum(inputValueRe->text().toDouble());
+        if (inputValueIm->text().toDouble() >= 0)
+            str += "+";
+        str += QString().setNum(inputValueIm->text().toDouble());
+        str += "i) = ";
+        str << Si(c);
     }
 
     output->setText(str);

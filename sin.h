@@ -9,13 +9,13 @@ template <class number>
 class Sin : public Function<number>
 {
 public:
-    Array<number>calculateShit(int pow);
-    Sin();
-    Sin(int pow): Function<number>(pow, calculateShit(pow)){}
+    Array<number>calculateNumber(int pow);
+    Sin(int pow): Function<number>(pow, calculateNumber(pow)){}
 };
 
+
 template <class number>
-Array<number> Sin<number>::calculateShit(int pow)
+Array<number> Sin<number>::calculateNumber(int pow)
 {
     Array<number> derivatives;
     derivatives.resize(pow+1);

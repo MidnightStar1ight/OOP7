@@ -18,7 +18,7 @@ public:
         this->coefs = coefs;
     }
     number operator()(number value) {
-        return this->count_value(value);
+        return this->evaluateValue(value);
     }
 };
 

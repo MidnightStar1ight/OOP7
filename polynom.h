@@ -15,7 +15,6 @@ protected:
     Array<number> coefs;
 
 public:
-    //Polynom();
 
     void clear();
 
@@ -30,17 +29,17 @@ public:
     const Array<number> &getRoots() const;
     const Array<number> &getCoefs() const;
     number evaluate(const number &x) const;
-    number count_value(number value)
+    number evaluateValue(number value)
     {
         int length=coefs.getSize();
-        number result;
-        number val=value;
+        number res;
+        number temp = value;
         for (int i = 0; i < length; ++i)
         {
-            result = result + coefs[i]*val;
-            val=val*value;
+            res += coefs[i]*temp;
+            temp *= value;
         }
-        return result;
+        return res;
     }
 
     void resize(const size_t newSize);
